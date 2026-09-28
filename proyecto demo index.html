@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inmobiliaria Aurora · Viviendas en Cuenca</title>
+<meta name="description" content="Viviendas seleccionadas en Cuenca y alrededores. Demo ficticia.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16233b;--sea:#2c4a6e;--gold:#b98a2e;--rose:#e9c9b8;--mist:#eef1f5;--line:#d9dee6;--w:#fff;--serif:"Cormorant Garamond",Georgia,serif;--sans:Manrope,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--w)}
+a{color:inherit;text-decoration:none}:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1160px;margin:auto;padding:0 22px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{font:700 22px var(--serif);letter-spacing:.14em}.logo span{color:var(--gold)}
+nav{display:flex;gap:26px;font-weight:500;font-size:15px}nav a:hover{color:var(--gold)}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 15px var(--sans);padding:13px 24px;border-radius:2px;background:var(--ink);color:#fff}
+.btn:hover{background:var(--sea)}.btn.gold{background:var(--gold)}.btn.gold:hover{background:#9c7423}
+.btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--ink)}.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero{background:linear-gradient(180deg,rgba(22,35,59,.55),rgba(22,35,59,.78)),url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=70") center/cover var(--ink);color:#fff;padding:120px 0 150px}
+.hero h1{font:600 clamp(40px,6vw,72px)/1.05 var(--serif);max-width:12em}
+.hero p{font-size:19px;margin:18px 0 30px;max-width:30em;color:#e9edf3}
+.tag{font:italic 500 20px var(--serif);color:var(--rose);margin-bottom:14px}
+.search{margin-top:-70px;position:relative;z-index:5}
+.search form{background:#fff;box-shadow:0 18px 50px rgba(22,35,59,.18);padding:22px;display:grid;grid-template-columns:auto repeat(3,1fr) auto;gap:14px;align-items:end;border-top:4px solid var(--gold)}
+.seg{display:flex;border:1.5px solid var(--ink)}.seg label{cursor:pointer}.seg input{position:absolute;opacity:0}
+.seg span{display:block;padding:11px 18px;font-weight:700;font-size:14px}.seg input:checked+span{background:var(--ink);color:#fff}
+.seg input:focus-visible+span{outline:3px solid var(--gold)}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:4px;color:var(--sea)}
+select{width:100%;padding:11px;border:1.5px solid var(--line);background:#fff;font:inherit;color:var(--ink)}
+section{padding:84px 0}h2.title{font:600 clamp(32px,4vw,46px)/1.1 var(--serif)}
+.sub{color:#5a6678;margin:8px 0 34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px}
+.property{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.thumb{width:100%;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(135deg,var(--sea),var(--rose))}
+.body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ref{font-size:13px;color:#6b7788}.property h2,.property-name{font:600 26px/1.15 var(--serif)}
+.property-price{font:700 24px var(--serif);color:var(--gold)}.property-location{color:var(--sea);font-weight:500}
+.specs{display:flex;gap:18px;padding:10px 0;border-block:1px solid var(--line)}.specs dt{font-size:12px;color:#6b7788}.specs dd{font-weight:700;margin:0}
+.features{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px}.features li{background:var(--mist);padding:3px 10px;font-size:13px}
+.property-description{font-size:15px;color:#3b475a;flex:1}.body .btn{margin-top:8px;align-self:flex-start}
+.notice{display:none;background:var(--mist);padding:26px;text-align:center}
+.about{background:var(--mist)}
+.contact{background:var(--ink);color:#fff}.contact .sub{color:#c5cede}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}.cgrid h3{font:600 22px var(--serif);color:var(--rose);margin-bottom:4px}
+footer{background:#0f192b;color:#98a4b8;font-size:13px;padding:22px 0;text-align:center}
+dialog{border:0;padding:0;width:min(920px,94vw);max-height:92vh;overflow:auto}dialog::backdrop{background:rgba(15,25,43,.7)}
+.d-in{padding:26px;display:grid;grid-template-columns:1.1fr 1fr;gap:26px}.d-close{position:absolute;right:12px;top:8px;font-size:30px;background:none;border:0;cursor:pointer;color:var(--ink)}
+.d-main{width:100%;aspect-ratio:4/3;object-fit:cover}.d-th{display:flex;gap:8px;margin-top:8px}.d-th img{width:33%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;opacity:.6}.d-th img.on{opacity:1;outline:2px solid var(--gold)}
+.d-info{display:flex;flex-direction:column;gap:10px}.d-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;display:none;z-index:50}
+@media(max-width:860px){nav{display:none}.search form{grid-template-columns:1fr 1fr}.seg{grid-column:1/-1}.search .btn{grid-column:1/-1}.d-in{grid-template-columns:1fr}.hero{padding:80px 0 120px}}
+@media(max-width:480px){header .btn{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header><div class="wrap"><a class="logo" href="#inicio">INMOBILIARIA <span>AURORA</span></a>
+<nav aria-label="Principal"><a href="#inicio">Inicio</a><a href="#propiedades" data-op="venta">Comprar</a><a href="#propiedades" data-op="alquiler">Alquilar</a><a href="#contacto">Contacto</a></nav>
+<a class="btn gold" href="#propiedades">Ver propiedades</a></div></header>
+<main>
+<div class="hero" id="inicio"><div class="wrap"><p class="tag">Encuentra el lugar donde empieza tu próxima historia.</p>
+<h1>Encuentra tu próxima vivienda en Cuenca</h1><p>Descubre viviendas seleccionadas en Cuenca y alrededores.</p><a class="btn gold" href="#propiedades">Ver propiedades</a></div></div>
+<div class="search"><div class="wrap"><form id="f" aria-label="Buscador de viviendas">
+<div class="seg" role="radiogroup" aria-label="Operación"><label><input type="radio" name="op" value="venta" checked><span>Comprar</span></label><label><input type="radio" name="op" value="alquiler"><span>Alquilar</span></label></div>
+<div class="field"><label for="t">Tipo de vivienda</label><select id="t"><option value="">Todos</option><option value="piso">Piso</option><option value="atico">Ático</option><option value="chalet">Chalet</option><option value="casa">Casa</option></select></div>
+<div class="field"><label for="l">Ubicación</label><select id="l"><option value="">Toda la zona</option><option>Avenida Castilla</option><option>Centro</option><option>Arcas</option><option>San Fernando</option><option>Los Palancares</option></select></div>
+<div class="field"><label for="p">Precio máximo</label><select id="p"><option value="">Sin límite</option><option value="150000">150.000 €</option><option value="200000">200.000 €</option><option value="250000">250.000 €</option><option value="300000">300.000 €</option></select></div>
+<button class="btn" type="submit">Buscar</button></form></div></div>
+<section id="propiedades"><div class="wrap"><h2 class="title">Viviendas seleccionadas</h2><p class="sub">Cinco propiedades disponibles en Cuenca y alrededores.</p>
+<div class="grid" id="list">
+<article class="property" id="aur-001" data-property-id="AUR-001" data-operation="venta" data-type="piso" data-price="185000" data-location="Avenida Castilla, Cuenca" data-area="94" data-rooms="3" data-baths="2" data-status="Disponible" data-garaje="si" data-ascensor="si" data-terraza="si" data-photos="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70">
+<img class="thumb" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=70" alt="Piso moderno en Avenida Castilla" loading="lazy">
+<div class="body">
+<p class="ref">Referencia: <span class="property-ref">AUR-001</span> · <span class="property-status">Disponible</span></p>
+<h2 class="property-name">Piso moderno en Avenida Castilla</h2>
+<p class="property-price">185.000 €</p>
+<p class="property-location">Avenida Castilla, Cuenca</p>
+<dl class="specs"><div><dt>Superficie</dt><dd class="property-area">94 m²</dd></div><div><dt>Habitaciones</dt><dd class="property-rooms">3</dd></div><div><dt>Baños</dt><dd class="property-baths">2</dd></div></dl>
+<ul class="features"><li class="feature" data-feature="garaje" data-value="Sí">Garaje: <strong>Sí</strong></li><li class="feature" data-feature="ascensor" data-value="Sí">Ascensor: <strong>Sí</strong></li><li class="feature" data-feature="terraza" data-value="Sí">Terraza: <strong>Sí</strong></li></ul>
+<p class="property-description">Piso moderno y luminoso situado en una de las zonas más demandadas de Cuenca. Dispone de tres dormitorios, dos baños, amplio salón, cocina independiente, terraza y plaza de garaje. La vivienda cuenta con ascensor y excelentes comunicaciones.</p>
+<button class="btn ghost open" type="button">Ver ficha completa</button>
+</div></article>
+<article class="property" id="aur-002" data-property-id="AUR-002" data-operation="venta" data-type="atico" data-price="219000" data-location="Centro, Cuenca" data-area="88" data-rooms="2" data-baths="2" data-status="Disponible" data-garaje="si" data-ascensor="si" data-terraza="si" data-photos="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=70">
+<img class="thumb" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=70" alt="Ático con terraza en el centro" loading="lazy">
+<div class="body">
+<p class="ref">Referencia: <span class="property-ref">AUR-002</span> · <span class="property-status">Disponible</span></p>
+<h2 class="property-name">Ático con terraza en el centro</h2>
+<p class="property-price">219.000 €</p>
+<p class="property-location">Centro, Cuenca</p>
+<dl class="specs"><div><dt>Superficie</dt><dd class="property-area">88 m²</dd></div><div><dt>Habitaciones</dt><dd class="property-rooms">2</dd></div><div><dt>Baños</dt><dd class="property-baths">2</dd></div></dl>
+<ul class="features"><li class="feature" data-feature="garaje" data-value="Sí">Garaje: <strong>Sí</strong></li><li class="feature" data-feature="ascensor" data-value="Sí">Ascensor: <strong>Sí</strong></li><li class="feature" data-feature="terraza" data-value="Sí">Terraza: <strong>Sí</strong></li></ul>
+<p class="property-description">Ático situado en pleno centro de Cuenca, con una amplia terraza y excelentes vistas. Cuenta con dos dormitorios, dos baños, salón comedor y cocina totalmente equipada.</p>
+<button class="btn ghost open" type="button">Ver ficha completa</button>
+</div></article>
+<article class="property" id="aur-003" data-property-id="AUR-003" data-operation="venta" data-type="chalet" data-price="295000" data-location="Arcas, Cuenca" data-area="178" data-rooms="4" data-baths="3" data-status="Disponible" data-garaje="si" data-piscina="si" data-jardin="si" data-photos="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=70">
+<img class="thumb" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=70" alt="Chalet independiente en Arcas" loading="lazy">
+<div class="body">
+<p class="ref">Referencia: <span class="property-ref">AUR-003</span> · <span class="property-status">Disponible</span></p>
+<h2 class="property-name">Chalet independiente en Arcas</h2>
+<p class="property-price">295.000 €</p>
+<p class="property-location">Arcas, Cuenca</p>
+<dl class="specs"><div><dt>Superficie</dt><dd class="property-area">178 m²</dd></div><div><dt>Habitaciones</dt><dd class="property-rooms">4</dd></div><div><dt>Baños</dt><dd class="property-baths">3</dd></div></dl>
+<ul class="features"><li class="feature" data-feature="garaje" data-value="Sí">Garaje: <strong>Sí</strong></li><li class="feature" data-feature="piscina" data-value="Sí">Piscina: <strong>Sí</strong></li><li class="feature" data-feature="jardín" data-value="Sí">Jardín: <strong>Sí</strong></li></ul>
+<p class="property-description">Chalet independiente situado en una zona residencial tranquila. Dispone de cuatro dormitorios, tres baños, jardín privado, piscina y garaje.</p>
+<button class="btn ghost open" type="button">Ver ficha completa</button>
+</div></article>
+<article class="property" id="aur-004" data-property-id="AUR-004" data-operation="venta" data-type="piso" data-price="149000" data-location="San Fernando, Cuenca" data-area="76" data-rooms="2" data-baths="1" data-status="Disponible" data-garaje="no" data-ascensor="si" data-terraza="si" data-photos="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=70">
+<img class="thumb" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=70" alt="Piso reformado en San Fernando" loading="lazy">
+<div class="body">
+<p class="ref">Referencia: <span class="property-ref">AUR-004</span> · <span class="property-status">Disponible</span></p>
+<h2 class="property-name">Piso reformado en San Fernando</h2>
+<p class="property-price">149.000 €</p>
+<p class="property-location">San Fernando, Cuenca</p>
+<dl class="specs"><div><dt>Superficie</dt><dd class="property-area">76 m²</dd></div><div><dt>Habitaciones</dt><dd class="property-rooms">2</dd></div><div><dt>Baños</dt><dd class="property-baths">1</dd></div></dl>
+<ul class="features"><li class="feature" data-feature="garaje" data-value="No">Garaje: <strong>No</strong></li><li class="feature" data-feature="ascensor" data-value="Sí">Ascensor: <strong>Sí</strong></li><li class="feature" data-feature="terraza" data-value="Sí">Terraza: <strong>Sí</strong></li></ul>
+<p class="property-description">Vivienda completamente reformada, luminosa y lista para entrar a vivir. Dispone de dos dormitorios, baño, salón comedor, cocina y terraza.</p>
+<button class="btn ghost open" type="button">Ver ficha completa</button>
+</div></article>
+<article class="property" id="aur-005" data-property-id="AUR-005" data-operation="venta" data-type="casa" data-price="265000" data-location="Los Palancares, Cuenca" data-area="156" data-rooms="4" data-baths="2" data-status="Disponible" data-garaje="si" data-jardin="si" data-piscina="no" data-photos="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=70,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=70">
+<img class="thumb" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=70" alt="Casa familiar en Los Palancares" loading="lazy">
+<div class="body">
+<p class="ref">Referencia: <span class="property-ref">AUR-005</span> · <span class="property-status">Disponible</span></p>
+<h2 class="property-name">Casa familiar en Los Palancares</h2>
+<p class="property-price">265.000 €</p>
+<p class="property-location">Los Palancares, Cuenca</p>
+<dl class="specs"><div><dt>Superficie</dt><dd class="property-area">156 m²</dd></div><div><dt>Habitaciones</dt><dd class="property-rooms">4</dd></div><div><dt>Baños</dt><dd class="property-baths">2</dd></div></dl>
+<ul class="features"><li class="feature" data-feature="garaje" data-value="Sí">Garaje: <strong>Sí</strong></li><li class="feature" data-feature="jardín" data-value="Sí">Jardín: <strong>Sí</strong></li><li class="feature" data-feature="piscina" data-value="No">Piscina: <strong>No</strong></li></ul>
+<p class="property-description">Amplia vivienda familiar ubicada en una zona tranquila. Cuenta con cuatro dormitorios, dos baños, jardín privado, garaje y amplias zonas exteriores.</p>
+<button class="btn ghost open" type="button">Ver ficha completa</button>
+</div></article>
+</div><p class="notice" id="none" role="status">No hay viviendas que coincidan con tu búsqueda. Prueba con otros filtros.</p></div></section>
+<section class="about"><div class="wrap"><h2 class="title">Una inmobiliaria de la tierra</h2><p class="sub" style="max-width:40em">Acompañamos a familias y compradores en Cuenca y alrededores: te enseñamos lo que encaja contigo, sin prisas ni letra pequeña.</p></div></section>
+<section class="contact" id="contacto"><div class="wrap"><h2 class="title">Contacto</h2><p class="sub">Datos ficticios de demostración.</p>
+<div class="cgrid"><div><h3>Teléfono</h3><p>+34 969 000 000</p></div><div><h3>Email</h3><p>info@inmobiliaria-aurora.example</p></div><div><h3>Dirección</h3><p>Calle Ejemplo, 12<br>16001 Cuenca</p></div><div><h3>Horario</h3><p>Lunes a viernes: 9:30–14:00 y 17:00–20:00<br>Sábados: 10:00–13:30</p></div></div></div></section>
+</main>
+<footer>© 2026 Inmobiliaria Aurora · Web de demostración con datos ficticios</footer>
+<dialog id="d" aria-label="Ficha de la vivienda"><button class="d-close" aria-label="Cerrar" id="x">×</button><div class="d-in"><div><img class="d-main" id="dm" alt=""><div class="d-th" id="dt"></div></div>
+<div class="d-info"><p class="ref" id="dr"></p><h2 class="property-name" id="dn"></h2><p class="property-price" id="dp"></p><p class="property-location" id="dl"></p><dl class="specs" id="ds"></dl><ul class="features" id="df"></ul><p id="dd"></p>
+<div class="d-btns"><button class="btn gold msg" type="button">Solicitar información</button><button class="btn ghost msg" type="button">Concertar visita</button></div></div></div></dialog>
+<div class="toast" id="ts" role="status">Esto es una demo: el botón es solo visual.</div>
+<script>
+const $=s=>document.querySelector(s),cards=[...document.querySelectorAll(".property")],dlg=$("#d");
+function filter(){const op=document.querySelector("[name=op]:checked").value,t=$("#t").value,l=$("#l").value,p=+$("#p").value||1e12;let n=0;
+cards.forEach(c=>{const ok=c.dataset.operation===op&&(!t||c.dataset.type===t)&&(!l||c.dataset.location.startsWith(l))&&+c.dataset.price<=p;c.hidden=!ok;n+=ok});$("#none").style.display=n?"none":"block"}
+$("#f").addEventListener("submit",e=>{e.preventDefault();filter();$("#propiedades").scrollIntoView()});
+document.querySelectorAll("[data-op]").forEach(a=>a.addEventListener("click",()=>{document.querySelector("[name=op][value="+a.dataset.op+"]").checked=true;filter()}));
+function open(c){const g=s=>c.querySelector(s),ph=c.dataset.photos.split(",");
+$("#dr").textContent="Referencia: "+c.dataset.propertyId;$("#dn").textContent=g(".property-name").textContent;$("#dp").textContent=g(".property-price").textContent;$("#dl").textContent=g(".property-location").textContent;
+$("#dd").textContent=g(".property-description").textContent;$("#df").innerHTML=g(".features").innerHTML;$("#ds").innerHTML=g(".specs").innerHTML;
+$("#dm").src=ph[0];$("#dm").alt=g(".property-name").textContent;
+$("#dt").innerHTML=ph.map((s,i)=>`<img src="${s}" alt="Foto ${i+1}" class="${i?"":"on"}">`).join("");
+$("#dt").querySelectorAll("img").forEach(im=>im.onclick=()=>{$("#dm").src=im.src;$("#dt").querySelectorAll("img").forEach(o=>o.classList.remove("on"));im.classList.add("on")});dlg.showModal()}
+cards.forEach(c=>{c.querySelector(".open").onclick=()=>open(c);c.querySelector(".thumb").onclick=()=>open(c)});
+$("#x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+document.querySelectorAll(".msg").forEach(b=>b.onclick=()=>{const t=$("#ts");t.style.display="block";setTimeout(()=>t.style.display="none",2500)});
+</script></body></html>
